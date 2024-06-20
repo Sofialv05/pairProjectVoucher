@@ -4,45 +4,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign Up</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-right: 2%;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+            margin-bottom: 15px;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .role-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .role-option label {
+            margin-left: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin:auto;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .create-account {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .create-account a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+            margin-right: 2%;
+        }
+
+        .create-account a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- halaman buat daftar-->
-    <ul>
-        <% if (errors) { %>
-            <% errors.split(",").forEach(e=> { %>
-                <li>
-                    <%=e %>
-                </li>
-                <% }) %>
-                    <% } %>
-    </ul>
+    <div class="container">
+        <h1>Sign Up</h1>
 
-    <!-- ada form username - input text, password - input password, role - select/radio(admin,user) -->
+ <!-- halaman buat daftar-->
+        
+ <ul>
+            <% if (errors) { %>
+            <% errors.split(",").forEach(e => { %>
+            <li class="error-message">
+                <%= e %>
+            </li>
+            <% }) %>
+            <% } %>
+        </ul>
 
-    <form action="/gshop/sign-up" method="post">
-        <div>
-            <label for="username">Username</label>
-            <input type="text" name="username" id="" placeholder="">
-        </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="password" name="password" id="" placeholder="">
-        </div>
-        <div>
-            <legend>Role</legend>
+<!-- ada form username - input text, password - input password, role - select/radio(admin,user) -->
+
+        <form action="/gshop/sign-up" method="post">
             <div>
-                <input type="radio" name="role" value="user">
-                <label for="role">user</label>
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" placeholder="Enter your username" required>
             </div>
             <div>
-                <input type="radio" name="role" value="admin">
-                <label for="role">admin</label>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="Enter your password" required>
             </div>
+            <fieldset>
+                <legend>Role:</legend>
+                <div class="role-options">
+                    <div>
+                        <input type="radio" name="role" id="user" value="user">
+                        <label for="user">User</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="role" id="admin" value="admin">
+                        <label for="admin">Admin</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <button type="submit">Create Account</button>
+        </form>
+
+        <div class="create-account">
+            <a href="/gshop/sign-in">Sign In</a>
         </div>
-        <button>create account</button>
-    </form>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
+
+

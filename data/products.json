@@ -1,40 +1,5 @@
 [
     {
-        "productName": "60 Oneiric Shard",
-        "price": 14000,
-        "CategoryId": 4
-    },
-    {
-        "productName": "300+30 Oneiric Shard",
-        "price": 60000,
-        "CategoryId": 4
-    },
-    {
-        "productName": "980+110 Oneiric Shard",
-        "price": 171000,
-        "CategoryId": 4
-    },
-    {
-        "productName": "1980+260 Oneiric Shard",
-        "price": 372000,
-        "CategoryId": 4
-    },
-    {
-        "productName": "1980+260 Oneiric Shard",
-        "price": 375000,
-        "CategoryId": 4
-    },
-    {
-        "productName": "3280+600 Oneiric Shard",
-        "price": 674000,
-        "CategoryId": 4
-    },
-    {
-        "productName": "6480+1600 Oneiric Shard",
-        "price": 1150000,
-        "CategoryId": 4
-    },
-    {
         "productName": "5 (5+0) Diamonds",
         "price": 1500,
         "CategoryId": 1
@@ -213,5 +178,565 @@
         "productName": "60 Genesis Crystals",
         "price": 15000,
         "CategoryId": 5
-    }
-]
+    },
+    {
+        "productName": "60 Oneiric Shard",
+        "price": 14000,
+        "CategoryId": 4
+    },
+    {
+        "productName": "300+30 Oneiric Shard",
+        "price": 60000,
+        "CategoryId": 4
+    },
+    {
+        "productName": "980+110 Oneiric Shard",
+        "price": 171000,
+        "CategoryId": 4
+    },
+    {
+        "productName": "1980+260 Oneiric Shard",
+        "price": 372000,
+        "CategoryId": 4
+    },
+    {
+        "productName": "3280+600 Oneiric Shard",
+        "price": 674000,
+        "CategoryId": 4
+    },
+    {
+        "productName": "6480+1600 Oneiric Shard",
+        "price": 1150000,
+        "CategoryId": 4
+    },
+    {
+        "productName": "70 Armor Packs",
+        "price": 15000,
+        "CategoryId": 7
+    },
+    {
+        "productName": "490 Armor Packs",
+        "price": 120000,
+        "CategoryId": 7
+    },
+    {
+        "productName": "990 Armor Packs",
+        "price": 220000,
+        "CategoryId": 7
+    },
+    {
+        "productName": "1990 Armor Packs",
+        "price": 450000,
+        "CategoryId": 7
+    },
+    {
+        "productName": "2990 Armor Packs",
+        "price": 660000,
+        "CategoryId": 7
+    },
+    {
+        "productName": "6000 Armor Packs",
+        "price": 1320000,
+        "CategoryId": 7
+    },
+    {
+        "productName": "75 Blueprints",
+        "price": 15000,
+        "CategoryId": 8
+    },
+    {
+        "productName": "550 Blueprints",
+        "price": 110000,
+        "CategoryId": 8
+    },
+    {
+        "productName": "1050 Blueprints",
+        "price": 210000,
+        "CategoryId": 8
+    },
+    {
+        "productName": "2050 Blueprints",
+        "price": 410000,
+        "CategoryId": 8
+    },
+    {
+        "productName": "3050 Blueprints",
+        "price": 610000,
+        "CategoryId": 8
+    },
+    {
+        "productName": "6150 Blueprints",
+        "price": 1230000,
+        "CategoryId": 8
+    },
+    {
+        "productName": "70 Hammers",
+        "price": 15000,
+        "CategoryId": 9
+    },
+    {
+        "productName": "500 Hammers",
+        "price": 110000,
+        "CategoryId": 9
+    },
+    {
+        "productName": "1000 Hammers",
+        "price": 210000,
+        "CategoryId": 9
+    },
+    {
+        "productName": "2000 Hammers",
+        "price": 410000,
+        "CategoryId": 9
+    },
+    {
+        "productName": "3000 Hammers",
+        "price": 610000,
+        "CategoryId": 9
+    },
+    {
+        "productName": "6000 Hammers",
+        "price": 1220000,
+        "CategoryId": 9
+    },
+    {
+        "productName": "80 Runes",
+        "price": 16000,
+        "CategoryId": 10
+    },
+    {
+        "productName": "600 Runes",
+        "price": 120000,
+        "CategoryId": 10
+    },
+    {
+        "productName": "1200 Runes",
+        "price": 240000,
+        "CategoryId": 10
+    },
+    {
+        "productName": "2400 Runes",
+        "price": 480000,
+        "CategoryId": 10
+    },
+    {
+        "productName": "3600 Runes",
+        "price": 720000,
+        "CategoryId": 10
+    },
+    {
+        "productName": "7200 Runes",
+        "price": 1440000,
+        "CategoryId": 10
+    },
+    {
+        "productName": "90 Enchanted Swords",
+        "price": 17000,
+        "CategoryId": 11
+    },
+    {
+        "productName": "650 Enchanted Swords",
+        "price": 130000,
+        "CategoryId": 11
+    },
+    {
+        "productName": "1250 Enchanted Swords",
+        "price": 250000,
+        "CategoryId": 11
+    },
+    {
+        "productName": "2450 Enchanted Swords",
+        "price": 490000,
+        "CategoryId": 11
+    },
+    {
+        "productName": "3650 Enchanted Swords",
+        "price": 730000,
+        "CategoryId": 11
+    },
+    {
+        "productName": "7350 Enchanted Swords",
+        "price": 1470000,
+        "CategoryId": 11
+    },
+    {
+        "productName": "100 Flame Orbs",
+        "price": 18000,
+        "CategoryId": 12
+    },
+    {
+        "productName": "800 Flame Orbs",
+        "price": 140000,
+        "CategoryId": 12
+    },
+    {
+        "productName": "1600 Flame Orbs",
+        "price": 280000,
+        "CategoryId": 12
+    },
+    {
+        "productName": "3200 Flame Orbs",
+        "price": 560000,
+        "CategoryId": 12
+    },
+    {
+        "productName": "4800 Flame Orbs",
+        "price": 840000,
+        "CategoryId": 12
+    },
+    {
+        "productName": "9600 Flame Orbs",
+        "price": 1680000,
+        "CategoryId": 12
+    },
+    {
+        "productName": "100 Fable Scrolls",
+        "price": 19000,
+        "CategoryId": 13
+    },
+    {
+        "productName": "850 Fable Scrolls",
+        "price": 150000,
+        "CategoryId": 13
+    },
+    {
+        "productName": "1650 Fable Scrolls",
+        "price": 290000,
+        "CategoryId": 13
+    },
+    {
+        "productName": "3250 Fable Scrolls",
+        "price": 570000,
+        "CategoryId": 13
+    },
+    {
+        "productName": "4850 Fable Scrolls",
+        "price": 850000,
+        "CategoryId": 13
+    },
+    {
+        "productName": "9650 Fable Scrolls",
+        "price": 1700000,
+        "CategoryId": 13
+    },
+    {
+        "productName": "110 Mithril Crystals",
+        "price": 20000,
+        "CategoryId": 14
+    },
+    {
+        "productName": "900 Mithril Crystals",
+        "price": 160000,
+        "CategoryId": 14
+    },
+    {
+        "productName": "1800 Mithril Crystals",
+        "price": 320000,
+        "CategoryId": 14
+    },
+    {
+        "productName": "3600 Mithril Crystals",
+        "price": 640000,
+        "CategoryId": 14
+    },
+    {
+        "productName": "5400 Mithril Crystals",
+        "price": 960000,
+        "CategoryId": 14
+    },
+    {
+        "productName": "10800 Mithril Crystals",
+        "price": 1920000,
+        "CategoryId": 14
+    },
+    {
+        "productName": "120 (0+120) Reincarnations",
+        "price": 21000,
+        "CategoryId": 15
+    },
+    {
+        "productName": "950 (800+150) Reincarnations",
+        "price": 170000,
+        "CategoryId": 15
+    },
+    {
+        "productName": "1850 (1600+250) Reincarnations",
+        "price": 320000,
+        "CategoryId": 15
+    },
+    {
+        "productName": "3650 (3200+450) Reincarnations",
+        "price": 620000,
+        "CategoryId": 15
+    },
+    {
+        "productName": "5450 (4800+650) Reincarnations",
+        "price": 910000,
+        "CategoryId": 15
+    },
+    {
+        "productName": "10950 (9600+1350) Reincarnations",
+        "price": 1820000,
+        "CategoryId": 15
+    },
+    {
+        "productName": "100 Caskets",
+        "price": 22000,
+        "CategoryId": 16
+    },
+    {
+        "productName": "900 Caskets",
+        "price": 180000,
+        "CategoryId": 16
+    },
+    {
+        "productName": "1800 Caskets",
+        "price": 340000,
+        "CategoryId": 16
+    },
+    {
+        "productName": "3600 Caskets",
+        "price": 680000,
+        "CategoryId": 16
+    },
+    {
+        "productName": "5400 Caskets",
+        "price": 1020000,
+        "CategoryId": 16
+    },
+    {
+        "productName": "10800 Caskets",
+        "price": 2040000,
+        "CategoryId": 16
+    },
+    {
+        "productName": "5 (5+0) Diamonds",
+        "price": 1500,
+        "CategoryId": 17
+    },
+    {
+        "productName": "10 (9+1) Diamonds",
+        "price": 3000,
+        "CategoryId": 17
+    },
+    {
+        "productName": "28 (25+3) Diamonds",
+        "price": 7500,
+        "CategoryId": 17
+    },
+    {
+        "productName": "36 (33+3) Diamonds",
+        "price": 10000,
+        "CategoryId": 17
+    },
+    {
+        "productName": "44 (40+4) Diamonds",
+        "price": 12000,
+        "CategoryId": 17
+    },
+    {
+        "productName": "59 (53+6) Diamonds",
+        "price": 15000,
+        "CategoryId": 17
+    },
+    {
+        "productName": "277 (250+27) Diamonds",
+        "price": 72000,
+        "CategoryId": 17
+    },
+    {
+        "productName": "716 (637+79) Diamonds",
+        "price": 180000,
+        "CategoryId": 17
+    },
+    {
+        "productName": "65,000 Comets",
+        "price": 23000,
+        "CategoryId": 18
+    },
+    {
+        "productName": "500,000 Comets",
+        "price": 180000,
+        "CategoryId": 18
+    },
+    {
+        "productName": "1,000,000 Comets",
+        "price": 340000,
+        "CategoryId": 18
+    },
+    {
+        "productName": "2,000,000 Comets",
+        "price": 680000,
+        "CategoryId": 18
+    },
+    {
+        "productName": "3,000,000 Comets",
+        "price": 1020000,
+        "CategoryId": 18
+    },
+    {
+        "productName": "6,000,000 Comets",
+        "price": 2040000,
+        "CategoryId": 18
+    },
+    {
+        "productName": "5 Airship Decks",
+        "price": 24000,
+        "CategoryId": 19
+    },
+    {
+        "productName": "50 Airship Decks",
+        "price": 200000,
+        "CategoryId": 19
+    },
+    {
+        "productName": "100 Airship Decks",
+        "price": 380000,
+        "CategoryId": 19
+    },
+    {
+        "productName": "200 Airship Decks",
+        "price": 760000,
+        "CategoryId": 19
+    },
+    {
+        "productName": "300 Airship Decks",
+        "price": 1140000,
+        "CategoryId": 19
+    },
+    {
+        "productName": "600 Airship Decks",
+        "price": 2280000,
+        "CategoryId": 19
+    },
+    {
+        "productName": "1,000 Decimals",
+        "price": 25000,
+        "CategoryId": 20
+    },
+    {
+        "productName": "10,000 Decimals",
+        "price": 200000,
+        "CategoryId": 20
+    },
+    {
+        "productName": "100,000 Decimals",
+        "price": 380000,
+        "CategoryId": 20
+    },
+    {
+        "productName": "200,000 Decimals",
+        "price": 760000,
+        "CategoryId": 20
+    },
+    {
+        "productName": "300,000 Decimals",
+        "price": 1140000,
+        "CategoryId": 20
+    },
+    {
+        "productName": "600,000 Decimals",
+        "price": 2280000,
+        "CategoryId": 20
+    },
+    {
+        "productName": "5 Airship Decks",
+        "price": 24000,
+        "CategoryId": 19
+    },
+    {
+        "productName": "50 Airship Decks",
+        "price": 200000,
+        "CategoryId": 19
+    },
+    {
+        "productName": "100 Airship Decks",
+        "price": 380000,
+        "CategoryId": 19
+    },
+    {
+        "productName": "200 Airship Decks",
+        "price": 760000,
+        "CategoryId": 19
+    },
+    {
+        "productName": "300 Airship Decks",
+        "price": 1140000,
+        "CategoryId": 19
+    },
+    {
+        "productName": "600 Airship Decks",
+        "price": 2280000,
+        "CategoryId": 19
+    },
+    {
+        "productName": "1,000 Decimals",
+        "price": 25000,
+        "CategoryId": 20
+    },
+    {
+        "productName": "10,000 Decimals",
+        "price": 200000,
+        "CategoryId": 20
+    },
+    {
+        "productName": "100,000 Decimals",
+        "price": 380000,
+        "CategoryId": 20
+    },
+    {
+        "productName": "200,000 Decimals",
+        "price": 760000,
+        "CategoryId": 20
+    },
+    {
+        "productName": "300,000 Decimals",
+        "price": 1140000,
+        "CategoryId": 20
+    },
+    {
+        "productName": "600,000 Decimals",
+        "price": 2280000,
+        "CategoryId": 20
+    },
+    {
+        "productName": "5 (5+0) Diamonds",
+        "price": 1500,
+        "CategoryId": 21
+    },
+    {
+        "productName": "10 (9+1) Diamonds",
+        "price": 3000,
+        "CategoryId": 21
+    },
+    {
+        "productName": "28 (25+3) Diamonds",
+        "price": 7500,
+        "CategoryId": 21
+    },
+    {
+        "productName": "36 (33+3) Diamonds",
+        "price": 10000,
+        "CategoryId": 21
+    },
+    {
+        "productName": "44 (40+4) Diamonds",
+        "price": 12000,
+        "CategoryId": 21
+    },
+    {
+        "productName": "59 (53+6) Diamonds",
+        "price": 15000,
+        "CategoryId": 21
+    },
+    {
+        "productName": "277 (250+27) Diamonds",
+        "price": 72000,
+        "CategoryId": 21
+    },
+    {
+        "productName": "716 (637+79) Diamonds",
+        "price": 180000,
+        "CategoryId": 21
+    }]
+    

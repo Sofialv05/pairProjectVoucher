@@ -1,20 +1,23 @@
 [
-    {
-        "name": "Mobile Legend"
-    },
-    {
-        "name": "Aether Gazer"
-    },
-    {
-        "name": "Girls' Connect"
-    },
-    {
-        "name": "Honkai: Star Rail"
-    },
-    {
-        "name": "Genshin Impact"
-    },
-    {
-        "name": "Honkai Impact 3"
-    }
+    { "name": "Mobile Legend" },
+    { "name": "Aether Gazer" },
+    { "name": "Girls' Connect" },
+    { "name": "Honkai: Star Rail" },
+    { "name": "Genshin Impact" },
+    { "name": "Honkai Impact 3" },
+    { "name": "Free Fire" },
+    { "name": "PUBG Mobile" },
+    { "name": "Call of Duty: Mobile" },
+    { "name": "Valorant" },
+    { "name": "Apex Legends" },
+    { "name": "Fortnite" },
+    { "name": "League of Legends" },
+    { "name": "Dota 2" },
+    { "name": "World of Warcraft" },
+    { "name": "Overwatch" },
+    { "name": "Minecraft" },
+    { "name": "The Elder Scrolls Online" },
+    { "name": "Final Fantasy XIV" },
+    { "name": "Among Us" },
+    {"name": "Fall Guys: Ultimate Knockout"}
 ]
