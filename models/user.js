@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasOne(models.UserProfile)
       User.hasMany(models.Order)
-      // User.belongsToMany(models.User, { through: models.Order, as: 'userOrders' })
+      User.belongsToMany(models.Category, { through: 'UserCategory', foreignKey: 'UserId', as: 'categories' })
     }
 
     static async validateUsernamePassword(username, password) {

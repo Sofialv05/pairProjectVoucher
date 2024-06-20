@@ -4,6 +4,7 @@ const EasyInvoice = require('easyinvoice');
 const fs = require('fs');
 const path = require('path');
 const nodemailer = require('nodemailer');
+const convertCurrency = require('../helpers/convertCurrency')
 // const bcrypt = require('bcryptjs')
 
 
@@ -38,13 +39,28 @@ class Controller {
     //     }
     // }
 
-    static async orderProducts(req, res) {
+    static async orderProducts(req, res) { //ini role
+        const {userId} = req.session
         try {
+        
             const { categoryId } = req.params;
-            const data = await Category.findByPk(categoryId);
+            
+            // Fetch category with products and associated orders and users
+            const category = await Category.findByPk(categoryId, {
+                include: {
+                    model: Product}
+            })
+                   const role = await User.findOne({
+                    where: { id: userId},
+                    attributes: ['role']
+        })
+                   
+
+
             const products = await Product.findAll({ where: { CategoryId: categoryId } });
 
-            res.render('OrderByCategory', { data, products });
+            // Render the template passing category, products, and user role to the view
+            res.render('OrderByCategory', { category, products, role });
         } catch (err) {
             res.send(err.message);
         }
@@ -233,18 +249,40 @@ class Controller {
     static async showOrders(req, res) {
         const { userId } = req.session
         try {
-            const orders = await Order.findAll({
-                where: {
-                    UserId: userId
-                }
-            })
+
+            const orders = await User.findOne({
+                where: { id: userId },
+                attributes: ['username'],
+                include: [
+                    {
+                        model: Order,
+                        where: { status: false },
+                        include: [
+                            {
+                                model: Product,
+                                attributes: ['productName']
+                            }
+                        ]
+                    }
+                ]
+            });
+
             // console.log(orders,`<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`)
             // res.send(orders)
-            if (orders.length < 0) {
-                const empty = "Tidak ada order, order dulu ngab!"
-                res.render('Orders', { empty })
-            }
-            res.render('Orders', { orders })
+            // if (orders.length < 0) {
+            //     const empty = "Tidak ada order, order dulu ngab!"
+            //     res.render('Orders', { empty })
+            // }
+            // res.send(orders)
+
+            const subtotal = await Order.sum('totalPrice', {
+                where: {
+                    id: userId,
+                    status: false
+                }
+            })
+
+            res.render('Orders', { orders, subtotal, convertCurrency })
         } catch (err) {
             res.send(err)
         }
