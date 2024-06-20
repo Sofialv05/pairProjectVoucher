@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GShop</title>
+</head>
+
+<body>
+
+    <!--pilih product -->
+    <h1>
+        <%= category.name%>
+    </h1>
+    <form action="gshop/<%= category.id %>" method="post">
+        <% category.Products.forEach(e=> { %>
+            <p>
+                <%= e.productName %>
+            </p>
+            <p>
+                <%=e.formatPrice %>
+            </p>
+
+
+            <% }) %>
+                <button>Beli</button>
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <% if (empty) { %>
+        <h1>
+            <%= empty %>
+        </h1>
+        <% } else { %>
+
+            <table border="1">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                    <th>Status</th>
+                    <th>Oder Date</th>
+                </tr>
+
+                <% orders.forEach(e=> { %>
+                    <tr>
+                        <td>
+                            <%= e.totalPrice %>
+                        </td>
+                        <td>
+                            <a href="/gshop/orders/:userId/:orderId/cancel">Batalkan Pesanan</a>
+                        </td>
+                    </tr>
+
+                    <% }) %>
+            </table>
+
+
+
+            <% } %>
+</body>
+
+</html>

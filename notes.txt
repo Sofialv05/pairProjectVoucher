@@ -1,0 +1,33 @@
+cek kelengkapan:
+1. ERD //done
+2. login page //done
+3. 3 asosiasi //done
+4. model migration //done
+5. seeder //done
+
+routes:
+1. 2 route get dan 1 route post //done
+2. route logout //done
+
+app:
+1. fitur search //done
+2. static method //done
+3. getter //done
+4. validasi //done
+5. CRUD
+-- create new user //done
+-- read data //done
+-- update userProfile
+-- delete order(batalkan transaksi)
+6. hooks //done
+7. helper //done
+8. promise chaining //done
+
+pages:
+1. landing page 
+2. register dan login page //done
+3. page eager loading //done
+
+explore:
+1. login dengan middleware & bcryptjs //done
+2. MVP (nodemail)

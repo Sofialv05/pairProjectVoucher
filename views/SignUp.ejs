@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- halaman buat daftar-->
+    <ul>
+        <% if (errors) { %>
+            <% errors.split(",").forEach(e=> { %>
+                <li>
+                    <%=e %>
+                </li>
+                <% }) %>
+                    <% } %>
+    </ul>
+
+    <!-- ada form username - input text, password - input password, role - select/radio(admin,user) -->
+
+    <form action="/gshop/sign-up" method="post">
+        <div>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="" placeholder="">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="" placeholder="">
+        </div>
+        <div>
+            <legend>Role</legend>
+            <div>
+                <input type="radio" name="role" value="user">
+                <label for="role">user</label>
+            </div>
+            <div>
+                <input type="radio" name="role" value="admin">
+                <label for="role">admin</label>
+            </div>
+        </div>
+        <button>create account</button>
+    </form>
+</body>
+
+</html>

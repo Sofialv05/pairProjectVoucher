@@ -1,0 +1,217 @@
+[
+    {
+        "productName": "60 Oneiric Shard",
+        "price": 14000,
+        "CategoryId": 4
+    },
+    {
+        "productName": "300+30 Oneiric Shard",
+        "price": 60000,
+        "CategoryId": 4
+    },
+    {
+        "productName": "980+110 Oneiric Shard",
+        "price": 171000,
+        "CategoryId": 4
+    },
+    {
+        "productName": "1980+260 Oneiric Shard",
+        "price": 372000,
+        "CategoryId": 4
+    },
+    {
+        "productName": "1980+260 Oneiric Shard",
+        "price": 375000,
+        "CategoryId": 4
+    },
+    {
+        "productName": "3280+600 Oneiric Shard",
+        "price": 674000,
+        "CategoryId": 4
+    },
+    {
+        "productName": "6480+1600 Oneiric Shard",
+        "price": 1150000,
+        "CategoryId": 4
+    },
+    {
+        "productName": "5 (5+0) Diamonds",
+        "price": 1500,
+        "CategoryId": 1
+    },
+    {
+        "productName": "10 (9+1) Diamonds",
+        "price": 3000,
+        "CategoryId": 1
+    },
+    {
+        "productName": "28 (25+3) Diamonds",
+        "price": 7500,
+        "CategoryId": 1
+    },
+    {
+        "productName": "36 (33+3) Diamonds",
+        "price": 10000,
+        "CategoryId": 1
+    },
+    {
+        "productName": "44 (40+4) Diamonds",
+        "price": 12000,
+        "CategoryId": 1
+    },
+    {
+        "productName": "59 (53+6) Diamonds",
+        "price": 15000,
+        "CategoryId": 1
+    },
+    {
+        "productName": "277 (250+27) Diamonds",
+        "price": 72000,
+        "CategoryId": 1
+    },
+    {
+        "productName": "716 (637+79) Diamonds",
+        "price": 180000,
+        "CategoryId": 1
+    },
+    {
+        "productName": "65 Crystals",
+        "price": 14000,
+        "CategoryId": 6
+    },
+    {
+        "productName": "330 Crystals",
+        "price": 70000,
+        "CategoryId": 6
+    },
+    {
+        "productName": "710 Crystals",
+        "price": 130000,
+        "CategoryId": 6
+    },
+    {
+        "productName": "1430 Crystals",
+        "price": 275000,
+        "CategoryId": 6
+    },
+    {
+        "productName": "3860 Crystals",
+        "price": 785000,
+        "CategoryId": 6
+    },
+    {
+        "productName": "8088 Crystals",
+        "price": 1570000,
+        "CategoryId": 6
+    },
+    {
+        "productName": "100 Voucher",
+        "price": 14500,
+        "CategoryId": 3
+    },
+    {
+        "productName": "200 Voucher",
+        "price": 29000,
+        "CategoryId": 3
+    },
+    {
+        "productName": "300 Voucher",
+        "price": 43000,
+        "CategoryId": 3
+    },
+    {
+        "productName": "500 Voucher",
+        "price": 73000,
+        "CategoryId": 3
+    },
+    {
+        "productName": "1000 Voucher",
+        "price": 145000,
+        "CategoryId": 3
+    },
+    {
+        "productName": "1500 Voucher",
+        "price": 220000,
+        "CategoryId": 3
+    },
+    {
+        "productName": "2000 Voucher",
+        "price": 291000,
+        "CategoryId": 3
+    },
+    {
+        "productName": "3000 Voucher",
+        "price": 437000,
+        "CategoryId": 3
+    },
+    {
+        "productName": "5000 Voucher",
+        "price": 729000,
+        "CategoryId": 3
+    },
+    {
+        "productName": "10000 Voucher",
+        "price": 1460000,
+        "CategoryId": 3
+    },
+    {
+        "productName": "60 Shifting Flowers",
+        "price": 15000,
+        "CategoryId": 2
+    },
+    {
+        "productName": "490 Shifting Flowers",
+        "price": 129000,
+        "CategoryId": 2
+    },
+    {
+        "productName": "990 Shifting Flowers",
+        "price": 229000,
+        "CategoryId": 2
+    },
+    {
+        "productName": "1990 Shifting Flowers",
+        "price": 469000,
+        "CategoryId": 2
+    },
+    {
+        "productName": "2990 Shifting Flowers",
+        "price": 690000,
+        "CategoryId": 2
+    },
+    {
+        "productName": "6000 Shifting Flowers",
+        "price": 1390000,
+        "CategoryId": 2
+    },
+    {
+        "productName": "8080 Genesis Crystals",
+        "price": 1468000,
+        "CategoryId": 5
+    },
+    {
+        "productName": "3880 Genesis Crystals",
+        "price": 734000,
+        "CategoryId": 5
+    },
+    {
+        "productName": "2240 Genesis Crystals",
+        "price": 440000,
+        "CategoryId": 5
+    },
+    {
+        "productName": "1090 Genesis Crystals",
+        "price": 230000,
+        "CategoryId": 5
+    },
+    {
+        "productName": "330 Genesis Crystals",
+        "price": 73000,
+        "CategoryId": 5
+    },
+    {
+        "productName": "60 Genesis Crystals",
+        "price": 15000,
+        "CategoryId": 5
+    }
+]

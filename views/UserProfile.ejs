@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- user profile page nampilin userProfile beserta username nya -->
+
+    <!-- ada tombol update profile -->
+
+    <h1>
+        <%= user.username %>
+    </h1>
+
+    <p>
+        Nama: <%=user.UserProfile.fullName %>
+    </p>
+    <p>
+        No. HP: <%=user.UserProfile.phoneNumber %>
+    </p>
+
+
+    <a href="/gshop/user-profile/edit">Edit Profile</a>
+    <a href="/gshop/sign-out">Sign Out</a>
+</body>
+
+</html>
