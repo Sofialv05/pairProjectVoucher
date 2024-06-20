@@ -37,19 +37,18 @@ const login = (req, res, next) => {
 router.get('/gshop/sign-out', login, Controller.signOut) //done
 
 //check profile
-router.get('/gshop/user-profile/', login, Controller.userProfile)
+router.get('/gshop/user-profile/', login, Controller.userProfile)//done
 
 //edit user profile
-router.get('/gshop/user-profile/edit', login, Controller.updateProfile)
+router.get('/gshop/user-profile/edit', login, Controller.updateProfile)//done
 
 // //post edit user profile
-router.post('/gshop/user-profile/edit', login, Controller.postUpdateProfile)
+router.post('/gshop/user-profile/edit', login, Controller.postUpdateProfile)//done
 
 // //tampilin user orders
 router.get('/gshop/orders/', login, Controller.showOrders)
 
-// //nodmailes
-// // router.get('/gshop/orders/:userId/:orderId/pay', SendMail)
+router.post('/gshop/orders/generateInvoice', login, Controller.generateInvoice);
 
 // //destroy user order
 // router.get('/gshop/orders/:userId/:orderId/cancel', login, Controller.cancelOrder)
@@ -57,9 +56,9 @@ router.get('/gshop/orders/', login, Controller.showOrders)
 
 
 // //menu product dari kategorinya
-router.get('/gshop/category/:categoryId', Controller.orderProducts) //done
+router.get('/gshop/category/:categoryId', login, Controller.orderProducts) //done
+router.post('/gshop/category/:categoryId', login, Controller.postOrderProducts) //done
 // router.get('/gshop/category/:categoryId/order', Controller.orderProducts)
-router.post('/gshop/category/:categoryId/order/generateInvoice', Controller.generateInvoice);
 // //post buat transaksi
 // router.post('/gshop/category/:categoryId', Controller.createOrder)
 

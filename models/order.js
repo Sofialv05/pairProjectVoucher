@@ -14,6 +14,15 @@ module.exports = (sequelize, DataTypes) => {
       Order.belongsTo(models.Product)
       Order.belongsTo(models.User)
     }
+
+    get formatOrderDate() {
+      const formatDate = this.orderDate.toISOString()
+      return formatDate.slice(0, 10)
+    }
+
+    get statusOrder() {
+      if (!this.status) return "Waiting for payment"
+    }
   }
   Order.init({
     UserId: DataTypes.INTEGER,
@@ -27,5 +36,8 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Order',
   });
+
+  Order.beforeCreate(instance => instance.orderDate = new Date())
+
   return Order;
 };

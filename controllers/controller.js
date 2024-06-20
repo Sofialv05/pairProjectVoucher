@@ -3,7 +3,7 @@ const { Op } = require('sequelize')
 const EasyInvoice = require('easyinvoice');
 const fs = require('fs');
 const path = require('path');
-const nodemailer = require('nodemailer');
+const convertCurrency = require('../helpers/convertCurrency')
 // const bcrypt = require('bcryptjs')
 
 
@@ -26,37 +26,112 @@ class Controller {
         }
     }
 
-    // static async getProductsByCategory(req, res) { //done
-    //     try {
-    //         const { categoryId } = req.params;
-    //         const data = await Category.findByPk(categoryId, {
-    //             include: Product
-    //         });
-    //         res.render('Products', { data });
-    //     } catch (err) {
-    //         res.send(err);
-    //     }
-    // }
-
-    static async orderProducts(req, res) {
+    static async orderProducts(req, res) { //ini role
+        const { userId } = req.session
         try {
+
             const { categoryId } = req.params;
-            const data = await Category.findByPk(categoryId);
+            const category = await Category.findByPk(categoryId, {
+                include: {
+                    model: Product
+                }
+            })
+            const role = await User.findOne({
+                where: { id: userId },
+                attributes: ['role']
+            })
+
             const products = await Product.findAll({ where: { CategoryId: categoryId } });
 
-            res.render('OrderByCategory', { data, products });
+            res.render('OrderByCategory', { category, products, role, convertCurrency });
+        } catch (err) {
+            res.send(err);
+        }
+    }
+
+    static async postOrderProducts(req, res) {
+        const { userId } = req.session
+        try {
+            // res.send(req.body)
+            const data = req.body
+
+            const products = [];
+
+            for (let i = 0; i < data.ProductId.length; i++) {
+
+                if (data.quantity[i] == 0) continue
+
+                const product = {
+                    ProductId: data.ProductId[i],
+                    productName: data.productName[i],
+                    totalPrice: (+data.price[i]) * (+data.quantity[i]),
+                    quantity: +data.quantity[i],
+                };
+                products.push(product);
+            }
+            // res.send(products)
+            for (let i = 0; i < products.length; i++) {
+                const { ProductId, productName, totalPrice, quantity } = products[i];
+
+                await Order.create({
+                    UserId: userId,
+                    ProductId,
+                    productName,
+                    totalPrice,
+                    quantity,
+                    gameUid: req.body.gameUid
+                });
+            }
+            // await Order.create
+            // const products = await Product.findAll({ where: { CategoryId: categoryId } });
+            res.redirect('/gshop/orders/')
+            // res.render('OrderByCategory', { data, products });
         } catch (err) {
             res.send(err.message);
         }
     }
 
     static async generateInvoice(req, res) {
+        const { userId } = req.session
         try {
-            const { productId, productName, price, quantity, buyerName } = req.body;
+            // console.log("test")
+            await Order.update({
+                status: true,
+                where: {
+                    UserId: userId
+                }
+            })
 
-            const product = await Product.findByPk(productId);
+            const user = await User.findOne({
+                where: { id: userId },
+                attributes: ['username'],
+                include: [
+                    {
+                        model: Order,
+                        where: { status: false },
+                        include: Product
 
-            const totalPrice = Number(price) * Number(quantity);
+                    }
+                ]
+            });
+
+            const subtotal = await Order.sum('totalPrice', {
+                where: {
+                    id: userId,
+                    status: false
+                }
+            })
+
+            const products = []
+            for (let i = 0; i < user.Orders.length; i++) {
+                const { productName } = user.Orders[i].Product
+                const { totalPrice, quantity } = user.Orders[i]
+
+                const product = {
+                    productName, quantity, totalPrice
+                }
+                products.push(product)
+            }
 
             const invoiceData = {
                 documentTitle: 'Invoice',
@@ -73,7 +148,7 @@ class Controller {
                     country: 'Your Country'
                 },
                 client: {
-                    company: buyerName,
+                    company: user.username,
                     address: 'Client Address',
                     zip: '67890',
                     city: 'Client City',
@@ -81,21 +156,18 @@ class Controller {
                 },
                 invoiceNumber: '2024001',
                 invoiceDate: new Date().toISOString(),
-                products: [
-                    {
-                        quantity: quantity,
-                        description: productName,
-                        price: price
-                    }
-                ],
+                products: products,
+                subtotal: subtotal,
                 bottomNotice: 'Kindly pay your invoice within 15 days.',
             };
 
             const pdfBuffer = await EasyInvoice.createInvoice(invoiceData);
 
+
             res.contentType('application/pdf');
-            res.setHeader(`Content-Disposition`, `attachment; filename="${productName}.pdf"`);
+            res.setHeader(`Content-Disposition`, `attachment; filename="${user.username}.pdf"`);
             res.send(pdfBuffer);
+            res.redirect('/')
         } catch (err) {
             console.error('Error generating invoice:', err);
             res.status(500).send('Error generating invoice');
@@ -233,18 +305,41 @@ class Controller {
     static async showOrders(req, res) {
         const { userId } = req.session
         try {
-            const orders = await Order.findAll({
-                where: {
-                    UserId: userId
-                }
-            })
+
+            const orders = await User.findOne({
+                where: { id: userId },
+                attributes: ['username'],
+                include: [
+                    {
+                        model: Order,
+                        where: { status: false },
+                        include: [
+                            {
+                                model: Product,
+                                attributes: ['productName']
+                            }
+                        ]
+                    }
+                ]
+            });
+
             // console.log(orders,`<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`)
             // res.send(orders)
-            if (orders.length < 0) {
-                const empty = "Tidak ada order, order dulu ngab!"
-                res.render('Orders', { empty })
-            }
-            res.render('Orders', { orders })
+            // if (orders.length < 0) {
+            //     const empty = "Tidak ada order, order dulu ngab!"
+            //     res.render('Orders', { empty })
+            // }
+            // res.send(orders)
+
+            const subtotal = await Order.sum('totalPrice', {
+                where: {
+                    UserId: userId,
+                    status: false
+                }
+            })
+            console.log(subtotal)
+
+            res.render('Orders', { orders, subtotal, convertCurrency })
         } catch (err) {
             res.send(err)
         }

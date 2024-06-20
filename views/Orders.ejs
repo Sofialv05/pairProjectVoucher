@@ -8,31 +8,48 @@
 </head>
 
 <body>
-  
-            <table border="1">
+
+    <h1>Here are your orders, <%= orders.username %>
+    </h1>
+    <form action="/gshop/orders/generateInvoice" method="post">
+        <table border="1">
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>Order Date</th>
+                <th>Status</th>
+            </tr>
+            <% orders.Orders.forEach(e=> { %>
+
                 <tr>
-                    <th>Product Name</th>
-                    <th>Quantity</th>
-                    <th>Total Price</th>
-                    <th>Status</th>
-                    <th>Oder Date</th>
+                    <td>
+                        <%= e.Product.productName %>
+                    </td>
+                    <td>
+                        <%= e.quantity %>
+                    </td>
+                    <td>
+                        <%=convertCurrency(e.totalPrice) %>
+                    </td>
+                    <td>
+                        <%= e.formatOrderDate %>
+                    </td>
+                    <td>
+                        <%= e.statusOrder %>
+                    </td>
                 </tr>
+                <% }) %>
+        </table>
 
-                <% orders.forEach(e=> { %>
-                    <tr>
-                        <td>
-                            <%= e.totalPrice %>
-                        </td>
-                        <td>
-                            <a href="/gshop/orders/:userId/:orderId/cancel">Batalkan Pesanan</a>
-                        </td>
-                        <% }) %>
-                    </tr>
+        <p>
+            <%=convertCurrency(subtotal) %>
+        </p>
 
-            </table>
+        <button>Pay Now</button>
+    </form>
 
-
-
+    <!-- <a href="/gshop/orders/pay">test</a> -->
 </body>
 
 </html>
