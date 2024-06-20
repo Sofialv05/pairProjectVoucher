@@ -5,28 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GShop</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 
 <body>
+    <h1><%= data.name %></h1>
 
-    <!--pilih product -->
-    <h1>
-        <%= category.name%>
-    </h1>
-    <form action="gshop/<%= category.id %>" method="post">
-        <% category.Products.forEach(e=> { %>
-            <p>
-                <%= e.productName %>
-            </p>
-            <p>
-                <%=e.formatPrice %>
-            </p>
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.Products.forEach(product => { %>
+                <tr>
+                    <td><%= product.productName %></td>
+                    <td><%= product.formatPrice %></td>
+                    <td>
+                        <form action="<%= data.id %>/order" method="get">
+                            <button type="submit">Order</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
 
-
-            <% }) %>
-                <button>Beli</button>
-    </form>
-
+    <a href="/gshop">Back to Home</a>
 </body>
 
 </html>

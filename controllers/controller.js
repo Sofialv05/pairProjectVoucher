@@ -1,5 +1,8 @@
 const { Category, Order, Product, User, UserProfile } = require('../models')
 const { Op } = require('sequelize')
+const EasyInvoice = require('easyinvoice');
+const fs = require('fs');
+const path = require('path');
 const nodemailer = require('nodemailer');
 // const bcrypt = require('bcryptjs')
 
@@ -25,28 +28,81 @@ class Controller {
 
     static async getProductsByCategory(req, res) { //done
         try {
-            const { categoryId } = req.params
-            const category = await Category.findOne({
-                include: Product,
-                where: {
-                    id: categoryId
-                }
-            })
-            // res.send(category)
-            res.render('Products', { category })
+            const { categoryId } = req.params;
+            const data = await Category.findByPk(categoryId, {
+                include: Product
+            });
+            res.render('Products', { data });
         } catch (err) {
-            res.send(err)
+            res.send(err);
         }
     }
 
-    static async createOrder(req, res) {//!-----
+    static async orderProducts(req, res) {
         try {
+            const { categoryId } = req.params;
+            const data = await Category.findByPk(categoryId);
+            const products = await Product.findAll({ where: { CategoryId: categoryId } });
 
-            res.render('Products', {})
+            res.render('OrderByCategory', { data, products });
         } catch (err) {
-            res.send(err)
+            res.send(err.message);
         }
     }
+
+    static async generateInvoice(req, res) {
+        try {
+            const { productId, productName, price, quantity, buyerName } = req.body;
+    
+            const product = await Product.findByPk(productId);
+    
+            const totalPrice = Number(price) * Number(quantity);
+    
+            const invoiceData = {
+                documentTitle: 'Invoice',
+                currency: 'IDR',
+                taxNotation: 'vat',
+                marginTop: 25,
+                marginBottom: 25,
+                logo: 'https://www.easyinvoice.cloud/img/logo.png',
+                sender: {
+                    company: 'Your Company Name',
+                    address: 'Your Company Address',
+                    zip: '12345',
+                    city: 'Your City',
+                    country: 'Your Country'
+                },
+                client: {
+                    company: buyerName,
+                    address: 'Client Address',
+                    zip: '67890',
+                    city: 'Client City',
+                    country: 'Client Country'
+                },
+                invoiceNumber: '2024001',
+                invoiceDate: new Date().toISOString(),
+                products: [
+                    {
+                        quantity: quantity,
+                        description: productName,
+                        price: price
+                    }
+                ],
+                bottomNotice: 'Kindly pay your invoice within 15 days.',
+            };
+    
+            const pdfBuffer = await EasyInvoice.createInvoice(invoiceData);
+    
+            res.contentType('application/pdf');
+            res.setHeader(`Content-Disposition`, `attachment; filename="${productName}.pdf"`);
+            res.send(pdfBuffer);
+        } catch (err) {
+            console.error('Error generating invoice:', err);
+            res.status(500).send('Error generating invoice');
+        }
+    }
+
+    
 
     static async signUp(req, res) { //done
         const { errors } = req.query
@@ -161,7 +217,7 @@ class Controller {
     static async postUpdateProfile(req, res) {
         const { userId } = req.session
         try {
-            console.log("test2")
+
             const { fullName, phoneNumber } = req.body
             await UserProfile.update({ fullName, phoneNumber }, {
                 where: {
@@ -182,7 +238,9 @@ class Controller {
                     UserId: userId
                 }
             })
-            if (!orders) {
+            // console.log(orders,`<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<`)
+            // res.send(orders)
+            if (orders.length < 0) {
                 const empty = "Tidak ada order, order dulu ngab!"
                 res.render('Orders', { empty })
             }
@@ -202,6 +260,19 @@ class Controller {
             res.redirect(`/gshop/orders/${userId}`)
         } catch (err) {
             res.send(err)
+        }
+    }
+
+    static async order(req, res) {
+        try {
+            const { id } = req.params
+            const data = await Product.findByPk(id)
+
+            res.send()
+            // res.render('OrderByCategory', { data: [dataArr] })
+        } catch (err) {
+            console.log(err)
+            res.send(err.message)
         }
     }
 }
