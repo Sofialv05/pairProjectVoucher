@@ -57,8 +57,8 @@ router.get('/gshop/orders/', login, Controller.showOrders)
 
 
 // //menu product dari kategorinya
-router.get('/gshop/category/:categoryId', Controller.getProductsByCategory) //done
-router.get('/gshop/category/:categoryId/order', Controller.orderProducts)
+router.get('/gshop/category/:categoryId', Controller.orderProducts) //done
+// router.get('/gshop/category/:categoryId/order', Controller.orderProducts)
 router.post('/gshop/category/:categoryId/order/generateInvoice', Controller.generateInvoice);
 // //post buat transaksi
 // router.post('/gshop/category/:categoryId', Controller.createOrder)

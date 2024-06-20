@@ -26,17 +26,17 @@ class Controller {
         }
     }
 
-    static async getProductsByCategory(req, res) { //done
-        try {
-            const { categoryId } = req.params;
-            const data = await Category.findByPk(categoryId, {
-                include: Product
-            });
-            res.render('Products', { data });
-        } catch (err) {
-            res.send(err);
-        }
-    }
+    // static async getProductsByCategory(req, res) { //done
+    //     try {
+    //         const { categoryId } = req.params;
+    //         const data = await Category.findByPk(categoryId, {
+    //             include: Product
+    //         });
+    //         res.render('Products', { data });
+    //     } catch (err) {
+    //         res.send(err);
+    //     }
+    // }
 
     static async orderProducts(req, res) {
         try {
@@ -53,11 +53,11 @@ class Controller {
     static async generateInvoice(req, res) {
         try {
             const { productId, productName, price, quantity, buyerName } = req.body;
-    
+
             const product = await Product.findByPk(productId);
-    
+
             const totalPrice = Number(price) * Number(quantity);
-    
+
             const invoiceData = {
                 documentTitle: 'Invoice',
                 currency: 'IDR',
@@ -90,9 +90,9 @@ class Controller {
                 ],
                 bottomNotice: 'Kindly pay your invoice within 15 days.',
             };
-    
+
             const pdfBuffer = await EasyInvoice.createInvoice(invoiceData);
-    
+
             res.contentType('application/pdf');
             res.setHeader(`Content-Disposition`, `attachment; filename="${productName}.pdf"`);
             res.send(pdfBuffer);
@@ -102,7 +102,7 @@ class Controller {
         }
     }
 
-    
+
 
     static async signUp(req, res) { //done
         const { errors } = req.query
