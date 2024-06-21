@@ -23,6 +23,40 @@ module.exports = (sequelize, DataTypes) => {
     get statusOrder() {
       if (!this.status) return "Waiting for payment"
     }
+
+    static async bulkOrders(obj, userId) {
+      const data = obj
+
+      const products = [];
+
+      for (let i = 0; i < data.ProductId.length; i++) {
+
+        if (data.quantity[i] == 0) continue
+
+        const product = {
+          ProductId: data.ProductId[i],
+          productName: data.productName[i],
+          totalPrice: (+data.price[i]) * (+data.quantity[i]),
+          quantity: +data.quantity[i],
+        };
+        products.push(product);
+      }
+
+
+      for (let i = 0; i < products.length; i++) {
+        const { ProductId, productName, totalPrice, quantity } = products[i];
+
+        await Order.create({
+          UserId: userId,
+          ProductId,
+          productName,
+          totalPrice,
+          quantity,
+          gameUid: obj.gameUid
+        });
+      }
+
+    }
   }
   Order.init({
     UserId: DataTypes.INTEGER,
