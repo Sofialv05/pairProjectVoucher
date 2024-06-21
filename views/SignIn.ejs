@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f0f0f0;
-                margin: 0;
-                padding: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-height: 100vh;
-            }
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
         .container {
             max-width: 400px;
@@ -26,24 +26,28 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         h1 {
             text-align: center;
             color: #333;
             margin-bottom: 20px;
         }
-        
+
         form {
             margin: 5%;
-            
-            
+
+
+        }
+
+        li {
+            list-style-type: none;
         }
 
         label {
             font-weight: bold;
             color: #333;
         }
-        
+
         input[type="text"],
         input[type="password"] {
             width: 100%;
@@ -64,11 +68,11 @@
             font-size: 16px;
             cursor: pointer;
         }
-        
+
         button:hover {
             background-color: #0056b3;
         }
-        
+
         .error-message {
             color: red;
             margin-top: 10px;
@@ -83,13 +87,13 @@
             margin-top: 20px;
             text-align: center;
         }
-        
+
         .create-account a {
             color: #007bff;
             text-decoration: none;
             font-size: 16px;
         }
-        
+
         .create-account a:hover {
             text-decoration: underline;
         }
@@ -98,36 +102,36 @@
 
 <body>
 
- <!-- halaman buat login-->
+    <!-- halaman buat login-->
 
     <div class="container">
         <h1>Login</h1>
-        
+
         <ul>
             <% if (error) { %>
                 <li class="error-message">
                     <%= error %>
                 </li>
                 <% } %>
-                
-                <% if (success) { %>
-                    <li class="success-message">
-                        <%= success %>
-                    </li>
-                    <% } %>
-                </ul>
 
-                <!-- ada form username - input text, password - input password -->
-                
-                <form action="/gshop/sign-in" method="post">
-                    <div>
-                        <label for="username">Username:</label>
-                        <input type="text" name="username" id="username" placeholder="Enter your username">
-                    </div>
-                    <div>
-                        <label for="password">Password:</label>
-                        <input type="password" name="password" id="password" placeholder="Enter your password">
-                    </div>
+                    <% if (success) { %>
+                        <li class="success-message">
+                            <%= success %>
+                        </li>
+                        <% } %>
+        </ul>
+
+        <!-- ada form username - input text, password - input password -->
+
+        <form action="/gshop/sign-in" method="post">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" placeholder="Enter your username">
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="Enter your password">
+            </div>
 
             <button type="submit">Sign in</button>
         </form>
@@ -136,7 +140,7 @@
             <a href="/gshop/sign-up">Create new account</a>
         </div>
     </div>
-    
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
 </body>
 

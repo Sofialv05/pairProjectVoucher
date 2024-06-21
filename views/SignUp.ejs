@@ -27,6 +27,11 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+
+        li {
+            list-style-type: none;
+        }
+
         h1 {
             text-align: center;
             color: #333;
@@ -86,7 +91,7 @@
             color: #fff;
             font-size: 16px;
             cursor: pointer;
-            margin:auto;
+            margin: auto;
         }
 
         button:hover {
@@ -120,28 +125,28 @@
     <div class="container">
         <h1>Sign Up</h1>
 
- <!-- halaman buat daftar-->
-        
- <ul>
+        <!-- halaman buat daftar-->
+
+        <ul>
             <% if (errors) { %>
-            <% errors.split(",").forEach(e => { %>
-            <li class="error-message">
-                <%= e %>
-            </li>
-            <% }) %>
-            <% } %>
+                <% errors.split(",").forEach(e=> { %>
+                    <li class="error-message">
+                        <%= e %>
+                    </li>
+                    <% }) %>
+                        <% } %>
         </ul>
 
-<!-- ada form username - input text, password - input password, role - select/radio(admin,user) -->
+        <!-- ada form username - input text, password - input password, role - select/radio(admin,user) -->
 
         <form action="/gshop/sign-up" method="post">
             <div>
                 <label for="username">Username:</label>
-                <input type="text" name="username" id="username" placeholder="Enter your username" required>
+                <input type="text" name="username" id="username" placeholder="Enter your username">
             </div>
             <div>
                 <label for="password">Password:</label>
-                <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                <input type="password" name="password" id="password" placeholder="Enter your password">
             </div>
             <fieldset>
                 <legend>Role:</legend>
@@ -169,5 +174,3 @@
 </body>
 
 </html>
-
-
